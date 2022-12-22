@@ -1,8 +1,9 @@
 package graphics;
 
 public class RandomWalk{
-    private int stepX;
-    private int stepY;
+    private static int stepX;
+    private static int stepY;
+    private static int steps;
 
     public static void main(String[] args){
         //bg
@@ -18,12 +19,16 @@ public class RandomWalk{
         //the cell
         Ellipse cell = new Ellipse(50, 50, 200, 200);
         cell.draw();
-
-        while(egg.getX() ){
-            stepX = (int) Math.random()*20 -10;
-            stepY = (int) Math.random()*20 -10;
-            egg.Translate(stepX, stepY);
+    
+        while (Math.sqrt(Math.pow((double) egg.getX()-150,2.0) + Math.pow((double) egg.getY()-150,2.0)) < 100) {
+            try{ Thread.sleep(100);}
+            catch(Exception ex) {};
+            stepX = (int) (Math.random()*20 )-10;
+            stepY = (int) (Math.random()*20 )-10;
+            egg.translate(stepX, stepY);
+            steps++;
         }
+        System.out.println(steps);
 
 
         
